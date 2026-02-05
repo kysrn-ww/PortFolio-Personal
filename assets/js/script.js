@@ -35,7 +35,23 @@ const translations = {
     fullName: "Full name",
     emailAddress: "Email address",
     yourMessage: "Your Message",
-    sendMessage: "Send Message"
+    sendMessage: "Send Message",
+    // Resume specific translations
+    universityTitle: "National University of Catamarca",
+    universityDegree: "Bachelor's degree in Information Systems with specialization in software development and computer science.",
+    technicalTitle: "Technical Institute Catamarca",
+    technicalDegree: "Programming Technician with focus on web development and desktop applications.",
+    fullStackTitle: "Full Stack Web Developer",
+    fullStackDesc: "Development of complete web applications using modern technologies like HTML, CSS, JavaScript and frontend frameworks.",
+    cppTitle: "C++ Developer",
+    cppDesc: "High-performance software development and desktop applications using C++ and modern standards.",
+    webDesign: "Web design",
+    graphicDesign: "Graphic design",
+    uiux: "UI/UX design",
+    wordpress: "WordPress",
+    cppSkill: "C++",
+    csharpSkill: "C#",
+    pythonSkill: "Python"
   },
   es: {
     aboutTitle: "Sobre mí",
@@ -51,7 +67,23 @@ const translations = {
     fullName: "Nombre completo",
     emailAddress: "Dirección de correo",
     yourMessage: "Tu mensaje",
-    sendMessage: "Enviar mensaje"
+    sendMessage: "Enviar mensaje",
+    // Resume specific translations
+    universityTitle: "Universidad Nacional de Catamarca",
+    universityDegree: "Licenciatura en Sistemas de Información con especialización en desarrollo de software y ciencias de la computación.",
+    technicalTitle: "Instituto Técnico Catamarca",
+    technicalDegree: "Técnico en Programación con enfoque en desarrollo web y aplicaciones de escritorio.",
+    fullStackTitle: "Desarrollador Web Full Stack",
+    fullStackDesc: "Desarrollo de aplicaciones web completas utilizando tecnologías modernas como HTML, CSS, JavaScript y frameworks frontend.",
+    cppTitle: "Desarrollador C++",
+    cppDesc: "Desarrollo de software de alto rendimiento y aplicaciones de escritorio utilizando C++ y estándares modernos.",
+    webDesign: "Diseño web",
+    graphicDesign: "Diseño gráfico",
+    uiux: "Diseño UI/UX",
+    wordpress: "WordPress",
+    cppSkill: "C++",
+    csharpSkill: "C#",
+    pythonSkill: "Python"
   },
   fr: {
     aboutTitle: "À propos de moi",
@@ -67,7 +99,23 @@ const translations = {
     fullName: "Nom complet",
     emailAddress: "Adresse e-mail",
     yourMessage: "Votre message",
-    sendMessage: "Envoyer le message"
+    sendMessage: "Envoyer le message",
+    // Resume specific translations
+    universityTitle: "Université Nationale de Catamarca",
+    universityDegree: "Licence en Systèmes d'Information avec spécialisation en développement logiciel et informatique.",
+    technicalTitle: "Institut Technique Catamarca",
+    technicalDegree: "Technicien en Programmation avec focus sur développement web et applications de bureau.",
+    fullStackTitle: "Développeur Web Full Stack",
+    fullStackDesc: "Développement d'applications web complètes utilisant technologies modernes comme HTML, CSS, JavaScript et frameworks frontend.",
+    cppTitle: "Développeur C++",
+    cppDesc: "Développement de logiciels haute performance et applications de bureau utilisant C++ et standards modernes.",
+    webDesign: "Design web",
+    graphicDesign: "Design graphique",
+    uiux: "Design UI/UX",
+    wordpress: "WordPress",
+    cppSkill: "C++",
+    csharpSkill: "C#",
+    pythonSkill: "Python"
   },
   de: {
     aboutTitle: "Über mich",
@@ -83,7 +131,23 @@ const translations = {
     fullName: "Vollständiger Name",
     emailAddress: "E-Mail-Adresse",
     yourMessage: "Ihre Nachricht",
-    sendMessage: "Nachricht senden"
+    sendMessage: "Nachricht senden",
+    // Resume specific translations
+    universityTitle: "Nationale Universität Catamarca",
+    universityDegree: "Bachelor in Informationssysteme mit Spezialisierung auf Softwareentwicklung und Informatik.",
+    technicalTitle: "Technisches Institut Catamarca",
+    technicalDegree: "Programmiertechniker mit Fokus auf Webentwicklung und Desktop-Anwendungen.",
+    fullStackTitle: "Full Stack Web Entwickler",
+    fullStackDesc: "Entwicklung kompletter Webanwendungen mit modernen Technologien wie HTML, CSS, JavaScript und Frontend-Frameworks.",
+    cppTitle: "C++ Entwickler",
+    cppDesc: "Hochleistungs-Softwareentwicklung und Desktop-Anwendungen mit C++ und modernen Standards.",
+    webDesign: "Webdesign",
+    graphicDesign: "Grafikdesign",
+    uiux: "UI/UX Design",
+    wordpress: "WordPress",
+    cppSkill: "C++",
+    csharpSkill: "C#",
+    pythonSkill: "Python"
   },
   it: {
     aboutTitle: "Su di me",
@@ -99,7 +163,23 @@ const translations = {
     fullName: "Nome completo",
     emailAddress: "Indirizzo email",
     yourMessage: "Il tuo messaggio",
-    sendMessage: "Invia messaggio"
+    sendMessage: "Invia messaggio",
+    // Resume specific translations
+    universityTitle: "Università Nazionale di Catamarca",
+    universityDegree: "Laurea in Sistemi Informatici con specializzazione in sviluppo software e informatica.",
+    technicalTitle: "Istituto Tecnico Catamarca",
+    technicalDegree: "Tecnico Programmatore con focus su sviluppo web e applicazioni desktop.",
+    fullStackTitle: "Sviluppatore Web Full Stack",
+    fullStackDesc: "Sviluppo di applicazioni web complete usando tecnologie moderne come HTML, CSS, JavaScript e framework frontend.",
+    cppTitle: "Sviluppatore C++",
+    cppDesc: "Sviluppo software ad alte prestazioni e applicazioni desktop usando C++ e standard moderni.",
+    webDesign: "Web design",
+    graphicDesign: "Design grafico",
+    uiux: "Design UI/UX",
+    wordpress: "WordPress",
+    cppSkill: "C++",
+    csharpSkill: "C#",
+    pythonSkill: "Python"
   },
   pt: {
     aboutTitle: "Sobre mim",
@@ -115,7 +195,23 @@ const translations = {
     fullName: "Nome completo",
     emailAddress: "Endereço de e-mail",
     yourMessage: "Sua mensagem",
-    sendMessage: "Enviar mensagem"
+    sendMessage: "Enviar mensagem",
+    // Resume specific translations
+    universityTitle: "Universidade Nacional de Catamarca",
+    universityDegree: "Bacharelado em Sistemas de Informação com especialização em desenvolvimento de software e ciência da computação.",
+    technicalTitle: "Instituto Técnico Catamarca",
+    technicalDegree: "Técnico em Programação com foco em desenvolvimento web e aplicativos desktop.",
+    fullStackTitle: "Desenvolvedor Web Full Stack",
+    fullStackDesc: "Desenvolvimento de aplicações web completas usando tecnologias modernas como HTML, CSS, JavaScript e frameworks frontend.",
+    cppTitle: "Desenvolvedor C++",
+    cppDesc: "Desenvolvimento de software de alta performance e aplicativos desktop usando C++ e padrões modernos.",
+    webDesign: "Web design",
+    graphicDesign: "Design gráfico",
+    uiux: "Design UI/UX",
+    wordpress: "WordPress",
+    cppSkill: "C++",
+    csharpSkill: "C#",
+    pythonSkill: "Python"
   },
   zh: {
     aboutTitle: "关于我",
@@ -131,12 +227,28 @@ const translations = {
     fullName: "全名",
     emailAddress: "电子邮件地址",
     yourMessage: "您的消息",
-    sendMessage: "发送消息"
+    sendMessage: "发送消息",
+    // Resume specific translations
+    universityTitle: "卡塔马卡国立大学",
+    universityDegree: "信息系统学士学位，专业软件开发和计算机科学。",
+    technicalTitle: "卡塔马卡技术学院",
+    technicalDegree: "编程技术员，专注于网页开发和桌面应用程序。",
+    fullStackTitle: "全栈网页开发者",
+    fullStackDesc: "使用现代技术开发完整网页应用程序，如HTML、CSS、JavaScript和前端框架。",
+    cppTitle: "C++开发者",
+    cppDesc: "使用C++和现代标准开发高性能软件和桌面应用程序。",
+    webDesign: "网页设计",
+    graphicDesign: "平面设计",
+    uiux: "UI/UX设计",
+    wordpress: "WordPress",
+    cppSkill: "C++",
+    csharpSkill: "C#",
+    pythonSkill: "Python"
   },
   ja: {
     aboutTitle: "私について",
     aboutText1: "私はアルゼンチン出身のクリエイティブディレクター兼UI/UXデザイナーで、ウェブ開発とC++ソフトウェアに携わっています。複雑な問題をシンプルで美しく直感的なデザインに変えることを楽しんでいます。",
-    aboutText2: "私は常に新しい挑戦と学び、成長する機会を探している情熱的な開発者です。<strong>英語とスペイン語のバイリンガル</strong>で、国際的なクライアントやチームと効果的にコミュニケーションできます。あなたのプロジェクトについて教えてください、一緒に実現しましょう！",
+    aboutText2: "私は常に新しい挑戦と学び、成長の機会を探している情熱的な開発者です。<strong>英語とスペイン語のバイリンガル</strong>で、国際的なクライアントやチームと効果的にコミュニケーションできます。あなたのプロジェクトについて教えてください、一緒に実現しましょう！",
     resumeTitle: "履歴書",
     educationTitle: "学歴",
     experienceTitle: "経験",
@@ -147,7 +259,23 @@ const translations = {
     fullName: "氏名",
     emailAddress: "メールアドレス",
     yourMessage: "メッセージ",
-    sendMessage: "メッセージを送信"
+    sendMessage: "メッセージを送信",
+    // Resume specific translations
+    universityTitle: "カタマルカ国立大学",
+    universityDegree: "ソフトウェア開発とコンピューターサイエンスを専門とする情報システム学士号。",
+    technicalTitle: "カタマルカ技術学院",
+    technicalDegree: "ウェブ開発とデスクトップアプリケーションに焦点を当てたプログラミング技術者。",
+    fullStackTitle: "フルスタックウェブ開発者",
+    fullStackDesc: "HTML、CSS、JavaScript、フロントエンドフレームワークなどの最新技術を使用した完全なウェブアプリケーションの開発。",
+    cppTitle: "C++開発者",
+    cppDesc: "C++と最新標準を使用した高性能ソフトウェアとデスクトップアプリケーションの開発。",
+    webDesign: "ウェブデザイン",
+    graphicDesign: "グラフィックデザイン",
+    uiux: "UI/UXデザイン",
+    wordpress: "WordPress",
+    cppSkill: "C++",
+    csharpSkill: "C#",
+    pythonSkill: "Python"
   },
   ko: {
     aboutTitle: "나에 대해",
@@ -163,7 +291,23 @@ const translations = {
     fullName: "전체 이름",
     emailAddress: "이메일 주소",
     yourMessage: "메시지",
-    sendMessage: "메시지 보내기"
+    sendMessage: "메시지 보내기",
+    // Resume specific translations
+    universityTitle: "카타마르카 국립대학교",
+    universityDegree: "소프트웨어 개발 및 컴퓨터 과학 전문 정보 시스템 학사 학위.",
+    technicalTitle: "카타마르카 기술대학",
+    technicalDegree: "웹 개발 및 데스크톱 응용 프로그램에 중점을 둔 프로그래밍 기술자.",
+    fullStackTitle: "풀스택 웹 개발자",
+    fullStackDesc: "HTML, CSS, JavaScript, 프론트엔드 프레임워크 등 현대 기술을 사용한 완전한 웹 응용 프로그램 개발.",
+    cppTitle: "C++ 개발자",
+    cppDesc: "C++ 및 현대 표준을 사용한 고성능 소프트웨어 및 데스크톱 응용 프로그램 개발.",
+    webDesign: "웹 디자인",
+    graphicDesign: "그래픽 디자인",
+    uiux: "UI/UX 디자인",
+    wordpress: "WordPress",
+    cppSkill: "C++",
+    csharpSkill: "C#",
+    pythonSkill: "Python"
   },
   ru: {
     aboutTitle: "О себе",
@@ -179,7 +323,23 @@ const translations = {
     fullName: "Полное имя",
     emailAddress: "Адрес электронной почты",
     yourMessage: "Ваше сообщение",
-    sendMessage: "Отправить сообщение"
+    sendMessage: "Отправить сообщение",
+    // Resume specific translations
+    universityTitle: "Национальный Университет Катамарки",
+    universityDegree: "Бакалавр информационных систем со специализацией в разработке программного обеспечения и информатике.",
+    technicalTitle: "Технический Институт Катамарки",
+    technicalDegree: "Техник-программист с фокусом на веб-разработку и настольные приложения.",
+    fullStackTitle: "Full Stack веб-разработчик",
+    fullStackDesc: "Разработка полных веб-приложений с использованием современных технологий как HTML, CSS, JavaScript и фреймворки.",
+    cppTitle: "C++ разработчик",
+    cppDesc: "Разработка высокопроизводительного программного обеспечения и настольных приложений с использованием C++ и современных стандартов.",
+    webDesign: "Веб-дизайн",
+    graphicDesign: "Графический дизайн",
+    uiux: "UI/UX дизайн",
+    wordpress: "WordPress",
+    cppSkill: "C++",
+    csharpSkill: "C#",
+    pythonSkill: "Python"
   }
 };
 
@@ -199,24 +359,82 @@ function changeLanguage(lang) {
 
   // Update other sections
   const resumeTitle = document.querySelector('.resume .h2.article-title');
-  const educationTitle = document.querySelector('.resume .h3');
-  const experienceTitles = document.querySelectorAll('.resume .h3');
+  const educationTitles = document.querySelectorAll('.resume .h3');
   const skillsTitle = document.querySelector('.skill .h3');
   const portfolioTitle = document.querySelector('.portfolio .h2.article-title');
   const contactTitle = document.querySelector('.contact .h2.article-title');
   const contactFormTitle = document.querySelector('.contact-form .h3');
 
   if (resumeTitle) resumeTitle.textContent = trans.resumeTitle;
-  if (educationTitle && educationTitle.textContent.includes('Education')) educationTitle.textContent = trans.educationTitle;
-  if (experienceTitles) {
-    experienceTitles.forEach(title => {
-      if (title.textContent.includes('Experience')) title.textContent = trans.experienceTitle;
+  if (educationTitles) {
+    educationTitles.forEach(title => {
+      if (title.textContent.includes('Education') || title.textContent.includes('Educación') || 
+          title.textContent.includes('Éducation') || title.textContent.includes('Ausbildung') ||
+          title.textContent.includes('Educazione') || title.textContent.includes('Educação') ||
+          title.textContent.includes('教育') || title.textContent.includes('学歴') ||
+          title.textContent.includes('교육') || title.textContent.includes('Образование')) {
+        title.textContent = trans.educationTitle;
+      }
+      if (title.textContent.includes('Experience') || title.textContent.includes('Experiencia') ||
+          title.textContent.includes('Expérience') || title.textContent.includes('Erfahrung') ||
+          title.textContent.includes('Esperienza') || title.textContent.includes('Experiência') ||
+          title.textContent.includes('经验') || title.textContent.includes('経験') ||
+          title.textContent.includes('경험') || title.textContent.includes('Опыт')) {
+        title.textContent = trans.experienceTitle;
+      }
     });
   }
   if (skillsTitle) skillsTitle.textContent = trans.skillsTitle;
   if (portfolioTitle) portfolioTitle.textContent = trans.portfolioTitle;
   if (contactTitle) contactTitle.textContent = trans.contactTitle;
   if (contactFormTitle) contactFormTitle.textContent = trans.contactFormTitle;
+
+  // Update resume timeline items
+  const universityTitle = document.querySelector('.timeline-item h4');
+  const universityDegree = document.querySelector('.timeline-item p');
+  const technicalTitle = document.querySelectorAll('.timeline-item h4')[1];
+  const technicalDegree = document.querySelectorAll('.timeline-item p')[1];
+  const fullStackTitle = document.querySelectorAll('.timeline-item h4')[2];
+  const fullStackDesc = document.querySelectorAll('.timeline-item p')[2];
+  const cppTitle = document.querySelectorAll('.timeline-item h4')[3];
+  const cppDesc = document.querySelectorAll('.timeline-item p')[3];
+
+  if (universityTitle && universityTitle.textContent.includes('National University of Catamarca')) {
+    universityTitle.textContent = trans.universityTitle;
+  }
+  if (universityDegree && universityDegree.textContent.includes('Bachelor')) {
+    universityDegree.textContent = trans.universityDegree;
+  }
+  if (technicalTitle && technicalTitle.textContent.includes('Technical Institute')) {
+    technicalTitle.textContent = trans.technicalTitle;
+  }
+  if (technicalDegree && technicalDegree.textContent.includes('Programming')) {
+    technicalDegree.textContent = trans.technicalDegree;
+  }
+  if (fullStackTitle && fullStackTitle.textContent.includes('Full Stack')) {
+    fullStackTitle.textContent = trans.fullStackTitle;
+  }
+  if (fullStackDesc && fullStackDesc.textContent.includes('Development of complete')) {
+    fullStackDesc.textContent = trans.fullStackDesc;
+  }
+  if (cppTitle && cppTitle.textContent.includes('C++')) {
+    cppTitle.textContent = trans.cppTitle;
+  }
+  if (cppDesc && cppDesc.textContent.includes('High-performance')) {
+    cppDesc.textContent = trans.cppDesc;
+  }
+
+  // Update skills
+  const skillItems = document.querySelectorAll('.skills-item .h5');
+  skillItems.forEach((item, index) => {
+    if (item.textContent.includes('Web design')) item.textContent = trans.webDesign;
+    if (item.textContent.includes('Graphic design')) item.textContent = trans.graphicDesign;
+    if (item.textContent.includes('UI/UX')) item.textContent = trans.uiux;
+    if (item.textContent.includes('WordPress')) item.textContent = trans.wordpress;
+    if (item.textContent.includes('C++')) item.textContent = trans.cppSkill;
+    if (item.textContent.includes('C#')) item.textContent = trans.csharpSkill;
+    if (item.textContent.includes('Python')) item.textContent = trans.pythonSkill;
+  });
 
   // Update form placeholders
   const fullNameInput = document.querySelector('input[name="fullname"]');
