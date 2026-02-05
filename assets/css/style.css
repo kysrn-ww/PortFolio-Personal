@@ -1885,7 +1885,7 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 .language-select {
   width: 100%;
-  padding: 12px 40px 12px 16px;
+  padding: 12px 40px 12px 36px;
   background: var(--bg-gradient-onyx);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-16);
@@ -1906,7 +1906,7 @@ textarea.form-input::-webkit-resizer { display: none; }
 }
 
 .language-select:hover {
-  background: var(--bg-gradient-jet);
+  background: var(--bg-gradient-onyx);
   border-color: var(--orange-yellow-crayola);
   transform: translateY(-2px);
   box-shadow: 
@@ -1919,6 +1919,7 @@ textarea.form-input::-webkit-resizer { display: none; }
 .language-select:focus {
   outline: none;
   border-color: var(--orange-yellow-crayola);
+  background: var(--bg-gradient-onyx);
   box-shadow: 
     inset 0 1px 0 rgba(255, 255, 255, 0.1),
     0 0 0 3px rgba(255, 165, 2, 0.2),
@@ -1949,11 +1950,6 @@ textarea.form-input::-webkit-resizer { display: none; }
   font-size: 14px;
   z-index: 1;
   pointer-events: none;
-}
-
-/* Adjust padding to make room for icon */
-.language-select {
-  padding-left: 36px;
 }
 
 
