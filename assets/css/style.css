@@ -1873,6 +1873,45 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 
 
+/*-----------------------------------*\
+  #LANGUAGE SELECTOR
+\*-----------------------------------*/
+
+.language-selector {
+  margin-top: 15px;
+  padding: 10px;
+}
+
+.language-select {
+  width: 100%;
+  padding: 8px 12px;
+  background: var(--bg-gradient-jet);
+  border: 1px solid var(--border-gradient-onyx);
+  border-radius: var(--radius-12);
+  color: var(--light-gray);
+  font-size: var(--fs-7);
+  cursor: pointer;
+  transition: var(--transition-1);
+}
+
+.language-select:hover {
+  background: var(--bg-gradient-onyx);
+  border-color: var(--orange-yellow-crayola);
+}
+
+.language-select:focus {
+  outline: 2px solid var(--orange-yellow-crayola);
+  outline-offset: 2px;
+}
+
+.language-select option {
+  background: var(--bg-oxford-blue);
+  color: var(--light-gray);
+  padding: 8px;
+}
+
+
+
   /**
 	 * RESUME
 	 */
