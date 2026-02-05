@@ -389,51 +389,125 @@ function changeLanguage(lang) {
   if (contactTitle) contactTitle.textContent = trans.contactTitle;
   if (contactFormTitle) contactFormTitle.textContent = trans.contactFormTitle;
 
-  // Update resume timeline items
-  const universityTitle = document.querySelector('.timeline-item h4');
-  const universityDegree = document.querySelector('.timeline-item p');
-  const technicalTitle = document.querySelectorAll('.timeline-item h4')[1];
-  const technicalDegree = document.querySelectorAll('.timeline-item p')[1];
-  const fullStackTitle = document.querySelectorAll('.timeline-item h4')[2];
-  const fullStackDesc = document.querySelectorAll('.timeline-item p')[2];
-  const cppTitle = document.querySelectorAll('.timeline-item h4')[3];
-  const cppDesc = document.querySelectorAll('.timeline-item p')[3];
+  // Update resume timeline items - use more robust selectors
+  const timelineItems = document.querySelectorAll('.timeline-item');
+  if (timelineItems.length >= 4) {
+    // Education items
+    const universityTitle = timelineItems[0].querySelector('h4');
+    const universityDegree = timelineItems[0].querySelector('p');
+    const technicalTitle = timelineItems[1].querySelector('h4');
+    const technicalDegree = timelineItems[1].querySelector('p');
+    
+    // Experience items
+    const fullStackTitle = timelineItems[2].querySelector('h4');
+    const fullStackDesc = timelineItems[2].querySelector('p');
+    const cppTitle = timelineItems[3].querySelector('h4');
+    const cppDesc = timelineItems[3].querySelector('p');
 
-  if (universityTitle && universityTitle.textContent.includes('National University of Catamarca')) {
-    universityTitle.textContent = trans.universityTitle;
-  }
-  if (universityDegree && universityDegree.textContent.includes('Bachelor')) {
-    universityDegree.textContent = trans.universityDegree;
-  }
-  if (technicalTitle && technicalTitle.textContent.includes('Technical Institute')) {
-    technicalTitle.textContent = trans.technicalTitle;
-  }
-  if (technicalDegree && technicalDegree.textContent.includes('Programming')) {
-    technicalDegree.textContent = trans.technicalDegree;
-  }
-  if (fullStackTitle && fullStackTitle.textContent.includes('Full Stack')) {
-    fullStackTitle.textContent = trans.fullStackTitle;
-  }
-  if (fullStackDesc && fullStackDesc.textContent.includes('Development of complete')) {
-    fullStackDesc.textContent = trans.fullStackDesc;
-  }
-  if (cppTitle && cppTitle.textContent.includes('C++')) {
-    cppTitle.textContent = trans.cppTitle;
-  }
-  if (cppDesc && cppDesc.textContent.includes('High-performance')) {
-    cppDesc.textContent = trans.cppDesc;
+    // Update education items
+    if (universityTitle) {
+      if (universityTitle.textContent.includes('National') || universityTitle.textContent.includes('Universidad') || 
+          universityTitle.textContent.includes('Université') || universityTitle.textContent.includes('Universität') ||
+          universityTitle.textContent.includes('Università') || universityTitle.textContent.includes('Universidade') ||
+          universityTitle.textContent.includes('大学') || universityTitle.textContent.includes('大学') ||
+          universityTitle.textContent.includes('대학교') || universityTitle.textContent.includes('Университет')) {
+        universityTitle.textContent = trans.universityTitle;
+      }
+    }
+    if (universityDegree) {
+      if (universityDegree.textContent.includes('Bachelor') || universityDegree.textContent.includes('Licenciatura') ||
+          universityDegree.textContent.includes('Licence') || universityDegree.textContent.includes('Bachelor') ||
+          universityDegree.textContent.includes('Laurea') || universityDegree.textContent.includes('Bacharelado') ||
+          universityDegree.textContent.includes('学士') || universityDegree.textContent.includes('学士') ||
+          universityDegree.textContent.includes('학사') || universityDegree.textContent.includes('Бакалавр')) {
+        universityDegree.textContent = trans.universityDegree;
+      }
+    }
+    
+    if (technicalTitle) {
+      if (technicalTitle.textContent.includes('Technical') || technicalTitle.textContent.includes('Instituto') ||
+          technicalTitle.textContent.includes('Institut') || technicalTitle.textContent.includes('Istituto') ||
+          technicalTitle.textContent.includes('Instituto') || technicalTitle.textContent.includes('学院') ||
+          technicalTitle.textContent.includes('학원') || technicalTitle.textContent.includes('Техникум')) {
+        technicalTitle.textContent = trans.technicalTitle;
+      }
+    }
+    if (technicalDegree) {
+      if (technicalDegree.textContent.includes('Programming') || technicalDegree.textContent.includes('Programación') ||
+          technicalDegree.textContent.includes('Programmation') || technicalDegree.textContent.includes('Programmierung') ||
+          technicalDegree.textContent.includes('Programmazione') || technicalDegree.textContent.includes('Programação') ||
+          technicalDegree.textContent.includes('编程') || technicalDegree.textContent.includes('プログラミング') ||
+          technicalDegree.textContent.includes('프로그래밍') || technicalDegree.textContent.includes('Программирование')) {
+        technicalDegree.textContent = trans.technicalDegree;
+      }
+    }
+
+    // Update experience items
+    if (fullStackTitle) {
+      if (fullStackTitle.textContent.includes('Full Stack') || fullStackTitle.textContent.includes('Full Stack') ||
+          fullStackTitle.textContent.includes('Full Stack') || fullStackTitle.textContent.includes('Full Stack') ||
+          fullStackTitle.textContent.includes('Full Stack') || fullStackTitle.textContent.includes('Full Stack')) {
+        fullStackTitle.textContent = trans.fullStackTitle;
+      }
+    }
+    if (fullStackDesc) {
+      if (fullStackDesc.textContent.includes('Development of complete') || fullStackDesc.textContent.includes('Desarrollo') ||
+          fullStackDesc.textContent.includes('Développement') || fullStackDesc.textContent.includes('Entwicklung') ||
+          fullStackDesc.textContent.includes('Sviluppo') || fullStackDesc.textContent.includes('Desenvolvimento') ||
+          fullStackDesc.textContent.includes('开发') || fullStackDesc.textContent.includes('開発') ||
+          fullStackDesc.textContent.includes('개발') || fullStackDesc.textContent.includes('Разработка')) {
+        fullStackDesc.textContent = trans.fullStackDesc;
+      }
+    }
+    if (cppTitle) {
+      if (cppTitle.textContent.includes('C++') || cppTitle.textContent.includes('C++')) {
+        cppTitle.textContent = trans.cppTitle;
+      }
+    }
+    if (cppDesc) {
+      if (cppDesc.textContent.includes('High-performance') || cppDesc.textContent.includes('alto rendimiento') ||
+          cppDesc.textContent.includes('Haute performance') || cppDesc.textContent.includes('Hochleistungs') ||
+          cppDesc.textContent.includes('Alte prestazioni') || cppDesc.textContent.includes('alta performance') ||
+          cppDesc.textContent.includes('高性能') || cppDesc.textContent.includes('고성능') ||
+          cppDesc.textContent.includes('Высокопроизводительный')) {
+        cppDesc.textContent = trans.cppDesc;
+      }
+    }
   }
 
   // Update skills
   const skillItems = document.querySelectorAll('.skills-item .h5');
   skillItems.forEach((item, index) => {
-    if (item.textContent.includes('Web design')) item.textContent = trans.webDesign;
-    if (item.textContent.includes('Graphic design')) item.textContent = trans.graphicDesign;
-    if (item.textContent.includes('UI/UX')) item.textContent = trans.uiux;
-    if (item.textContent.includes('WordPress')) item.textContent = trans.wordpress;
-    if (item.textContent.includes('C++')) item.textContent = trans.cppSkill;
-    if (item.textContent.includes('C#')) item.textContent = trans.csharpSkill;
-    if (item.textContent.includes('Python')) item.textContent = trans.pythonSkill;
+    const text = item.textContent.toLowerCase();
+    if (text.includes('web design') || text.includes('diseño web') || text.includes('design web') ||
+        text.includes('webdesign') || text.includes('웹 디자인') || text.includes('веб-дизайн')) {
+      item.textContent = trans.webDesign;
+    }
+    if (text.includes('graphic design') || text.includes('diseño gráfico') || text.includes('design graphique') ||
+        text.includes('grafikdesign') || text.includes('design grafico') || text.includes('design gráfico') ||
+        text.includes('平面设计') || text.includes('그래픽 디자인') || text.includes('графический дизайн')) {
+      item.textContent = trans.graphicDesign;
+    }
+    if (text.includes('ui/ux') || text.includes('ui/ux') || text.includes('ui/ux') ||
+        text.includes('ui/ux') || text.includes('ui/ux') || text.includes('ui/ux')) {
+      item.textContent = trans.uiux;
+    }
+    if (text.includes('wordpress') || text.includes('wordpress') || text.includes('wordpress') ||
+        text.includes('wordpress') || text.includes('wordpress') || text.includes('wordpress')) {
+      item.textContent = trans.wordpress;
+    }
+    if (text.includes('c++') || text.includes('c++') || text.includes('c++') ||
+        text.includes('c++') || text.includes('c++') || text.includes('c++')) {
+      item.textContent = trans.cppSkill;
+    }
+    if (text.includes('c#') || text.includes('c#') || text.includes('c#') ||
+        text.includes('c#') || text.includes('c#') || text.includes('c#')) {
+      item.textContent = trans.csharpSkill;
+    }
+    if (text.includes('python') || text.includes('python') || text.includes('python') ||
+        text.includes('python') || text.includes('python') || text.includes('python')) {
+      item.textContent = trans.pythonSkill;
+    }
   });
 
   // Update form placeholders
