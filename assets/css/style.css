@@ -334,6 +334,24 @@ main {
 .avatar-box {
   background: var(--bg-gradient-onyx);
   border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.avatar-box iframe {
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.avatar-box:hover iframe {
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+  transform: scale(1.05);
+}
+
+.avatar-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 255, 255, 0.3);
 }
 
 .info-content .name {
