@@ -168,7 +168,7 @@ function changeLanguage(lang) {
   if (aboutText1) aboutText1.textContent = trans.aboutText1;
   if (aboutText2) aboutText2.innerHTML = trans.aboutText2;
 
-  // Update other sections
+  // Update other sections - always update regardless of current language
   const resumeTitle = document.querySelector('.resume .h2.article-title');
   const educationTitles = document.querySelectorAll('.resume .h3');
   const skillsTitle = document.querySelector('.skill .h3');
@@ -178,22 +178,9 @@ function changeLanguage(lang) {
 
   if (resumeTitle) resumeTitle.textContent = trans.resumeTitle;
   if (educationTitles) {
-    educationTitles.forEach(title => {
-      if (title.textContent.includes('Education') || title.textContent.includes('Educación') || 
-          title.textContent.includes('Éducation') || title.textContent.includes('Ausbildung') ||
-          title.textContent.includes('Educazione') || title.textContent.includes('Educação') ||
-          title.textContent.includes('教育') || title.textContent.includes('学歴') ||
-          title.textContent.includes('교육') || title.textContent.includes('Образование')) {
-        title.textContent = trans.educationTitle;
-      }
-      if (title.textContent.includes('Experience') || title.textContent.includes('Experiencia') ||
-          title.textContent.includes('Expérience') || title.textContent.includes('Erfahrung') ||
-          title.textContent.includes('Esperienza') || title.textContent.includes('Experiência') ||
-          title.textContent.includes('经验') || title.textContent.includes('経験') ||
-          title.textContent.includes('경험') || title.textContent.includes('Опыт')) {
-        title.textContent = trans.experienceTitle;
-      }
-    });
+    // First h3 is Education, second h3 is Experience
+    if (educationTitles[0]) educationTitles[0].textContent = trans.educationTitle;
+    if (educationTitles[1]) educationTitles[1].textContent = trans.experienceTitle;
   }
   if (skillsTitle) skillsTitle.textContent = trans.skillsTitle;
   if (portfolioTitle) portfolioTitle.textContent = trans.portfolioTitle;
@@ -215,74 +202,33 @@ function changeLanguage(lang) {
     const cppTitle = timelineItems[3].querySelector('h4');
     const cppDesc = timelineItems[3].querySelector('p');
 
-    // Update education items
+    // Update education items - always update regardless of current language
     if (universityTitle) {
-      if (universityTitle.textContent.includes('National') || universityTitle.textContent.includes('Universidad') || 
-          universityTitle.textContent.includes('Université') || universityTitle.textContent.includes('Universität') ||
-          universityTitle.textContent.includes('Università') || universityTitle.textContent.includes('Universidade') ||
-          universityTitle.textContent.includes('大学') || universityTitle.textContent.includes('大学') ||
-          universityTitle.textContent.includes('대학교') || universityTitle.textContent.includes('Университет')) {
-        universityTitle.textContent = trans.universityTitle;
-      }
+      universityTitle.textContent = trans.universityTitle;
     }
     if (universityDegree) {
-      if (universityDegree.textContent.includes('Bachelor') || universityDegree.textContent.includes('Licenciatura') ||
-          universityDegree.textContent.includes('Licence') || universityDegree.textContent.includes('Bachelor') ||
-          universityDegree.textContent.includes('Laurea') || universityDegree.textContent.includes('Bacharelado') ||
-          universityDegree.textContent.includes('学士') || universityDegree.textContent.includes('学士') ||
-          universityDegree.textContent.includes('학사') || universityDegree.textContent.includes('Бакалавр')) {
-        universityDegree.textContent = trans.universityDegree;
-      }
+      universityDegree.textContent = trans.universityDegree;
     }
     
     if (technicalTitle) {
-      if (technicalTitle.textContent.includes('Technical') || technicalTitle.textContent.includes('Instituto') ||
-          technicalTitle.textContent.includes('Institut') || technicalTitle.textContent.includes('Istituto') ||
-          technicalTitle.textContent.includes('Instituto') || technicalTitle.textContent.includes('学院') ||
-          technicalTitle.textContent.includes('학원') || technicalTitle.textContent.includes('Техникум')) {
-        technicalTitle.textContent = trans.technicalTitle;
-      }
+      technicalTitle.textContent = trans.technicalTitle;
     }
     if (technicalDegree) {
-      if (technicalDegree.textContent.includes('Programming') || technicalDegree.textContent.includes('Programación') ||
-          technicalDegree.textContent.includes('Programmation') || technicalDegree.textContent.includes('Programmierung') ||
-          technicalDegree.textContent.includes('Programmazione') || technicalDegree.textContent.includes('Programação') ||
-          technicalDegree.textContent.includes('编程') || technicalDegree.textContent.includes('プログラミング') ||
-          technicalDegree.textContent.includes('프로그래밍') || technicalDegree.textContent.includes('Программирование')) {
-        technicalDegree.textContent = trans.technicalDegree;
-      }
+      technicalDegree.textContent = trans.technicalDegree;
     }
 
-    // Update experience items
+    // Update experience items - always update regardless of current language
     if (fullStackTitle) {
-      if (fullStackTitle.textContent.includes('Full Stack') || fullStackTitle.textContent.includes('Full Stack') ||
-          fullStackTitle.textContent.includes('Full Stack') || fullStackTitle.textContent.includes('Full Stack') ||
-          fullStackTitle.textContent.includes('Full Stack') || fullStackTitle.textContent.includes('Full Stack')) {
-        fullStackTitle.textContent = trans.fullStackTitle;
-      }
+      fullStackTitle.textContent = trans.fullStackTitle;
     }
     if (fullStackDesc) {
-      if (fullStackDesc.textContent.includes('Development of complete') || fullStackDesc.textContent.includes('Desarrollo') ||
-          fullStackDesc.textContent.includes('Développement') || fullStackDesc.textContent.includes('Entwicklung') ||
-          fullStackDesc.textContent.includes('Sviluppo') || fullStackDesc.textContent.includes('Desenvolvimento') ||
-          fullStackDesc.textContent.includes('开发') || fullStackDesc.textContent.includes('開発') ||
-          fullStackDesc.textContent.includes('개발') || fullStackDesc.textContent.includes('Разработка')) {
-        fullStackDesc.textContent = trans.fullStackDesc;
-      }
+      fullStackDesc.textContent = trans.fullStackDesc;
     }
     if (cppTitle) {
-      if (cppTitle.textContent.includes('C++') || cppTitle.textContent.includes('C++')) {
-        cppTitle.textContent = trans.cppTitle;
-      }
+      cppTitle.textContent = trans.cppTitle;
     }
     if (cppDesc) {
-      if (cppDesc.textContent.includes('High-performance') || cppDesc.textContent.includes('alto rendimiento') ||
-          cppDesc.textContent.includes('Haute performance') || cppDesc.textContent.includes('Hochleistungs') ||
-          cppDesc.textContent.includes('Alte prestazioni') || cppDesc.textContent.includes('alta performance') ||
-          cppDesc.textContent.includes('高性能') || cppDesc.textContent.includes('고성능') ||
-          cppDesc.textContent.includes('Высокопроизводительный')) {
-        cppDesc.textContent = trans.cppDesc;
-      }
+      cppDesc.textContent = trans.cppDesc;
     }
   }
 
