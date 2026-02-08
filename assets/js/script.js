@@ -431,16 +431,16 @@ const projectModalFunc = function () {
   console.log("🌑 projectOverlay:", projectOverlay);
   
   if (projectModalContainer) {
-    projectModalContainer.classList.toggle("active");
-    console.log("✅ Modal container class toggled, now has 'active':", projectModalContainer.classList.contains("active"));
+    projectModalContainer.classList.add("active");
+    console.log("✅ Modal container class added, now has 'active':", projectModalContainer.classList.contains("active"));
     console.log("🎨 Modal container styles:", window.getComputedStyle(projectModalContainer));
   } else {
     console.error("❌ projectModalContainer not found!");
   }
   
   if (projectOverlay) {
-    projectOverlay.classList.toggle("active");
-    console.log("✅ Overlay class toggled, now has 'active':", projectOverlay.classList.contains("active"));
+    projectOverlay.classList.add("active");
+    console.log("✅ Overlay class added, now has 'active':", projectOverlay.classList.contains("active"));
   } else {
     console.error("❌ projectOverlay not found!");
   }
