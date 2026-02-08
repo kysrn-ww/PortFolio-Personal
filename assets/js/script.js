@@ -533,14 +533,13 @@ for (let i = 0; i < projectLinks.length; i++) {
       }
       
       console.log("✅ Abriendo modal desde enlace...");
-      projectModalFunc();
     }
   });
 }
 
 // add click event to project modal close button
-projectModalCloseBtn.addEventListener("click", projectModalFunc);
-projectOverlay.addEventListener("click", projectModalFunc);
+projectModalCloseBtn.addEventListener("click", projectModalClose);
+projectOverlay.addEventListener("click", projectModalClose);
 
 
 // add event to all nav link
