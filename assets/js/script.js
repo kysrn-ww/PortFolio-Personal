@@ -426,8 +426,23 @@ const projectModalText = document.querySelector("[data-project-modal-text]");
 
 // project modal toggle function
 const projectModalFunc = function () {
-  projectModalContainer.classList.toggle("active");
-  projectOverlay.classList.toggle("active");
+  console.log("🎭 projectModalFunc called");
+  console.log("📦 projectModalContainer:", projectModalContainer);
+  console.log("🌑 projectOverlay:", projectOverlay);
+  
+  if (projectModalContainer) {
+    projectModalContainer.classList.toggle("active");
+    console.log("✅ Modal container class toggled, now has 'active':", projectModalContainer.classList.contains("active"));
+  } else {
+    console.error("❌ projectModalContainer not found!");
+  }
+  
+  if (projectOverlay) {
+    projectOverlay.classList.toggle("active");
+    console.log("✅ Overlay class toggled, now has 'active':", projectOverlay.classList.contains("active"));
+  } else {
+    console.error("❌ projectOverlay not found!");
+  }
 }
 
 // add click event to all project items
