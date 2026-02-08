@@ -412,6 +412,77 @@ for (let i = 0; i < formInputs.length; i++) {
 const navigationLinks = document.querySelectorAll("[data-nav-link]");
 const pages = document.querySelectorAll("[data-page]");
 
+// project details variables
+const projectItems = document.querySelectorAll("[data-filter-item]");
+const projectDetails = document.querySelectorAll("[data-project-details]");
+
+// project details data
+const projectData = {
+  "Web development": {
+    title: "Web development",
+    tech: "HTML, CSS, JavaScript, React, Node.js",
+    description: "Modern web applications with responsive design and interactive user interfaces.",
+    features: "• Responsive design<br>• Interactive UI components<br>• RESTful API integration<br>• Performance optimization",
+    github: "https://github.com/kysrn-ww/web-development-project"
+  },
+  "Fivem Software": {
+    title: "Fivem Software",
+    tech: "C++, Qt, OpenGL, SQL",
+    description: "High-performance desktop application with advanced features and modern UI.",
+    features: "• Multi-threading support<br>• Custom UI framework<br>• Database integration<br>• Cross-platform compatibility",
+    github: "https://github.com/kysrn-ww/fivem-software"
+  },
+  "Trust Loader": {
+    title: "Trust Loader",
+    tech: "C++, WinAPI, File System",
+    description: "Secure file loading utility with advanced features and enterprise-level security.",
+    features: "• Drag & drop interface<br>• File validation<br>• Progress tracking<br>• Multi-format support",
+    github: "https://github.com/kysrn-ww/trust-loader"
+  },
+  "Host Loader": {
+    title: "Host Loader",
+    tech: "C++, Networking, Security",
+    description: "Network-based host loader with advanced security features and performance monitoring.",
+    features: "• Secure protocol implementation<br>• Performance monitoring<br>• Custom configuration<br>• Real-time updates",
+    github: "https://github.com/kysrn-ww/host-loader"
+  },
+  "DSM": {
+    title: "DSM",
+    tech: "C++, WinAPI, System Services",
+    description: "Desktop service manager with comprehensive system monitoring and management capabilities.",
+    features: "• Service monitoring<br>• Performance optimization<br>• Automatic updates<br>• System integration",
+    github: "https://github.com/kysrn-ww/dsm"
+  },
+  "MetaSpark": {
+    title: "MetaSpark",
+    tech: "JavaScript, Node.js, Express, MongoDB",
+    description: "Web-based task management platform with real-time collaboration and advanced features.",
+    features: "• Real-time collaboration<br>• Task automation<br>• Analytics dashboard<br>• Mobile responsive design",
+    github: "https://github.com/kysrn-ww/metaspark"
+  },
+  "Summary": {
+    title: "Summary",
+    tech: "JavaScript, React, Redux, Local Storage",
+    description: "Personal productivity dashboard with data visualization and task tracking capabilities.",
+    features: "• Data visualization<br>• Task analytics<br>• Progress tracking<br>• Offline functionality",
+    github: "https://github.com/kysrn-ww/summary"
+  },
+  "Arrival": {
+    title: "Arrival",
+    tech: "JavaScript, Canvas, WebGL",
+    description: "Interactive 3D visualization platform with advanced rendering capabilities.",
+    features: "• 3D rendering engine<br>• Real-time collaboration<br>• Advanced shaders<br>• Performance optimization",
+    github: "https://github.com/kysrn-ww/arrival"
+  },
+  "Task Manager": {
+    title: "Task Manager",
+    tech: "C#, .NET, SQL Server",
+    description: "Enterprise task management solution with comprehensive features and team collaboration.",
+    features: "• Team collaboration<br>• Advanced reporting<br>• Workflow automation<br>• Integration capabilities",
+    github: "https://github.com/kysrn-ww/task-manager"
+  }
+};
+
 // add event to all nav link
 for (let i = 0; i < navigationLinks.length; i++) {
   navigationLinks[i].addEventListener("click", function () {
@@ -427,5 +498,50 @@ for (let i = 0; i < navigationLinks.length; i++) {
       }
     }
 
+  });
+}
+
+// add click event to all project items
+for (let i = 0; i < projectItems.length; i++) {
+  projectItems[i].addEventListener("click", function (e) {
+    e.preventDefault();
+    
+    const projectTitle = this.querySelector(".project-title").innerText;
+    const projectCategory = this.dataset.category;
+    
+    // find corresponding project details
+    let projectDetail = null;
+    for (let j = 0; j < projectDetails.length; j++) {
+      const detailTitle = projectDetails[j].querySelector(".project-details-title");
+      if (detailTitle && detailTitle.innerText === projectTitle) {
+        projectDetail = projectDetails[j];
+        break;
+      }
+    }
+    
+    // close all other project details
+    for (let j = 0; j < projectDetails.length; j++) {
+      if (projectDetails[j] !== projectDetail) {
+        projectDetails[j].classList.remove("active");
+      }
+    }
+    
+    // toggle current project details
+    if (projectDetail) {
+      projectDetail.classList.add("active");
+      
+      // update project details content
+      const techSpan = projectDetail.querySelector(".project-tech");
+      const descSpan = projectDetail.querySelector(".project-description");
+      const featuresSpan = projectDetail.querySelector(".project-features");
+      const githubLink = projectDetail.querySelector(".project-github");
+      
+      if (projectData[projectTitle]) {
+        techSpan.innerHTML = projectData[projectTitle].tech;
+        descSpan.innerHTML = projectData[projectTitle].description;
+        featuresSpan.innerHTML = projectData[projectTitle].features;
+        githubLink.href = projectData[projectTitle].github;
+      }
+    }
   });
 }
