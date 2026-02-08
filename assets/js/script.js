@@ -480,22 +480,18 @@ for (let i = 0; i < projectItem.length; i++) {
     }
     
     console.log("✅ Abriendo modal...");
+    console.log("🎭 Llamando projectModalFunc...");
     projectModalFunc();
   });
 }
 
-// Prevenir navegación en los enlaces de proyectos
+// Prevenir navegación en los enlaces de proyectos (sin duplicar eventos)
 const projectLinks = document.querySelectorAll("[data-filter-item] a");
 for (let i = 0; i < projectLinks.length; i++) {
   projectLinks[i].addEventListener("click", function(e) {
     e.preventDefault();
     e.stopPropagation();
-    
-    // Disparar el evento click en el padre (li) para abrir el modal
-    const parentItem = this.closest('[data-filter-item]');
-    if (parentItem) {
-      parentItem.click();
-    }
+    console.log("🚫 Enlace bloqueado, no hacer nada más");
   });
 }
 
