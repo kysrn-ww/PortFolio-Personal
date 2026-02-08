@@ -504,19 +504,16 @@ for (let i = 0; i < navigationLinks.length; i++) {
 // add click event to all project items
 for (let i = 0; i < projectItems.length; i++) {
   projectItems[i].addEventListener("click", function (e) {
-    // console.log("Proyecto clickeado:", this.querySelector(".project-title").innerText);
-    
-    const projectTitle = this.querySelector(".project-title").innerText.trim();
-    
     // Buscar la sección de detalles dentro de este mismo elemento li
     const projectDetail = this.querySelector("[data-project-details]");
     
     if (projectDetail) {
-      // Prevenir el comportamiento predeterminado si es un enlace
-      if (e.target.closest("a")) {
-        e.preventDefault();
-      }
+      // Prevenir el comportamiento predeterminado del enlace
+      e.preventDefault();
+      e.stopPropagation();
 
+      const projectTitle = this.querySelector(".project-title").innerText.trim();
+      
       // Cerrar otros detalles antes de abrir este
       projectDetails.forEach(detail => {
         if (detail !== projectDetail) detail.classList.remove("active");
