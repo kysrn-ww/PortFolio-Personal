@@ -433,6 +433,7 @@ const projectModalFunc = function () {
   if (projectModalContainer) {
     projectModalContainer.classList.toggle("active");
     console.log("✅ Modal container class toggled, now has 'active':", projectModalContainer.classList.contains("active"));
+    console.log("🎨 Modal container styles:", window.getComputedStyle(projectModalContainer));
   } else {
     console.error("❌ projectModalContainer not found!");
   }
