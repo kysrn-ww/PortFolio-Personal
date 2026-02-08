@@ -487,8 +487,10 @@ const projectData = {
 
 // project modal toggle function
 const projectModalFunc = function () {
-  projectModalContainer.classList.toggle("active");
-  projectOverlay.classList.toggle("active");
+  if (projectModalContainer && projectOverlay) {
+    projectModalContainer.classList.toggle("active");
+    projectOverlay.classList.toggle("active");
+  }
 }
 
 // add click event to all project items
@@ -497,25 +499,27 @@ for (let i = 0; i < projectItems.length; i++) {
     e.preventDefault();
     
     const img = this.querySelector("img");
-    const title = this.querySelector(".project-title").innerText.trim();
-    const category = this.querySelector(".project-category").innerText;
+    const title = this.querySelector(".project-title") ? this.querySelector(".project-title").innerText.trim() : "";
+    const category = this.querySelector(".project-category") ? this.querySelector(".project-category").innerText : "";
     
-    projectModalImg.src = img.src;
-    projectModalImg.alt = img.alt;
-    projectModalTitle.innerText = title;
-    projectModalCategory.innerText = category;
+    if (projectModalImg) {
+      projectModalImg.src = img ? img.src : "";
+      projectModalImg.alt = img ? img.alt : "";
+    }
+    if (projectModalTitle) projectModalTitle.innerText = title;
+    if (projectModalCategory) projectModalCategory.innerText = category;
     
     const data = projectData[title];
     if (data) {
-      projectModalText.innerHTML = `<p>${data.description}</p>`;
-      projectModalTech.innerText = data.tech;
-      projectModalFeatures.innerText = data.features;
-      projectModalGithub.href = data.github;
+      if (projectModalText) projectModalText.innerHTML = `<p>${data.description}</p>`;
+      if (projectModalTech) projectModalTech.innerText = data.tech;
+      if (projectModalFeatures) projectModalFeatures.innerText = data.features;
+      if (projectModalGithub) projectModalGithub.href = data.github;
     } else {
-      projectModalText.innerHTML = "<p>No description available for this project.</p>";
-      projectModalTech.innerText = "N/A";
-      projectModalFeatures.innerText = "N/A";
-      projectModalGithub.href = "#";
+      if (projectModalText) projectModalText.innerHTML = "<p>No description available for this project.</p>";
+      if (projectModalTech) projectModalTech.innerText = "N/A";
+      if (projectModalFeatures) projectModalFeatures.innerText = "N/A";
+      if (projectModalGithub) projectModalGithub.href = "#";
     }
     
     projectModalFunc();
@@ -523,5 +527,5 @@ for (let i = 0; i < projectItems.length; i++) {
 }
 
 // add click event to project modal close button
-projectModalCloseBtn.addEventListener("click", projectModalFunc);
-projectOverlay.addEventListener("click", projectModalFunc);
+if (projectModalCloseBtn) projectModalCloseBtn.addEventListener("click", projectModalFunc);
+if (projectOverlay) projectOverlay.addEventListener("click", projectModalFunc);

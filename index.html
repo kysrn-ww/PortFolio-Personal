@@ -455,6 +455,50 @@
           - clients
         -->
 
+        <!--
+          - #PORTFOLIO MODAL
+        -->
+
+        <div class="modal-container" data-project-modal-container>
+
+          <div class="overlay" data-project-overlay></div>
+
+          <section class="testimonials-modal">
+
+            <button class="modal-close-btn" data-project-modal-close-btn>
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+
+            <div class="modal-img-wrapper">
+              <figure class="modal-avatar-box">
+                <img src="" alt="" width="80" data-project-modal-img>
+              </figure>
+
+              <img src="./assets/images/icon-design.svg" alt="design icon">
+            </div>
+
+            <div class="modal-content">
+
+              <h4 class="h3 modal-title" data-project-modal-title></h4>
+
+              <time data-project-modal-category></time>
+
+              <div data-project-modal-text>
+                <p></p>
+              </div>
+
+              <div class="project-modal-extra" style="margin-top: 15px; font-size: var(--fs-6); color: var(--light-gray);">
+                <p><strong>Technologies:</strong> <span data-project-modal-tech></span></p>
+                <p><strong>Features:</strong> <span data-project-modal-features></span></p>
+                <p style="margin-top: 10px;"><a href="#" class="project-github" data-project-modal-github target="_blank" style="color: var(--orange-yellow-crayola);">View Repository</a></p>
+              </div>
+
+            </div>
+
+          </section>
+
+        </div>
+
         <section class="clients">
 
           <h3 class="h3 clients-title">Clients</h3>
