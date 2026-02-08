@@ -504,43 +504,41 @@ for (let i = 0; i < navigationLinks.length; i++) {
 // add click event to all project items
 for (let i = 0; i < projectItems.length; i++) {
   projectItems[i].addEventListener("click", function (e) {
-    e.preventDefault();
+    // console.log("Proyecto clickeado:", this.querySelector(".project-title").innerText);
     
-    const projectTitle = this.querySelector(".project-title").innerText;
-    const projectCategory = this.dataset.category;
+    const projectTitle = this.querySelector(".project-title").innerText.trim();
     
-    // find corresponding project details
-    let projectDetail = null;
-    for (let j = 0; j < projectDetails.length; j++) {
-      const detailTitle = projectDetails[j].querySelector(".project-details-title");
-      if (detailTitle && detailTitle.innerText === projectTitle) {
-        projectDetail = projectDetails[j];
-        break;
-      }
-    }
+    // Buscar la sección de detalles dentro de este mismo elemento li
+    const projectDetail = this.querySelector("[data-project-details]");
     
-    // close all other project details
-    for (let j = 0; j < projectDetails.length; j++) {
-      if (projectDetails[j] !== projectDetail) {
-        projectDetails[j].classList.remove("active");
-      }
-    }
-    
-    // toggle current project details
     if (projectDetail) {
-      projectDetail.classList.add("active");
+      // Prevenir el comportamiento predeterminado si es un enlace
+      if (e.target.closest("a")) {
+        e.preventDefault();
+      }
+
+      // Cerrar otros detalles antes de abrir este
+      projectDetails.forEach(detail => {
+        if (detail !== projectDetail) detail.classList.remove("active");
+      });
+
+      // Alternar estado activo
+      projectDetail.classList.toggle("active");
       
-      // update project details content
-      const techSpan = projectDetail.querySelector(".project-tech");
-      const descSpan = projectDetail.querySelector(".project-description");
-      const featuresSpan = projectDetail.querySelector(".project-features");
-      const githubLink = projectDetail.querySelector(".project-github");
-      
-      if (projectData[projectTitle]) {
-        techSpan.innerHTML = projectData[projectTitle].tech;
-        descSpan.innerHTML = projectData[projectTitle].description;
-        featuresSpan.innerHTML = projectData[projectTitle].features;
-        githubLink.href = projectData[projectTitle].github;
+      if (projectDetail.classList.contains("active")) {
+        // Actualizar contenido si existe en projectData
+        const techSpan = projectDetail.querySelector(".project-tech");
+        const descSpan = projectDetail.querySelector(".project-description");
+        const featuresSpan = projectDetail.querySelector(".project-features");
+        const githubLink = projectDetail.querySelector(".project-github");
+        
+        const data = projectData[projectTitle];
+        if (data) {
+          if (techSpan) techSpan.innerHTML = data.tech;
+          if (descSpan) descSpan.innerHTML = data.description;
+          if (featuresSpan) featuresSpan.innerHTML = data.features;
+          if (githubLink) githubLink.href = data.github;
+        }
       }
     }
   });
