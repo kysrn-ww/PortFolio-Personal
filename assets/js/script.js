@@ -325,13 +325,17 @@ for (let i = 0; i < testimonialsItem.length; i++) {
     if (modalTitle && title) modalTitle.innerHTML = title.innerHTML;
     if (modalText && text) modalText.innerHTML = text.innerHTML;
     
-    // Reset project specific fields
+    // Reset project specific fields to prevent data leaking between modals
     if (modalIcon) {
       modalIcon.src = "./assets/images/icon-quote.svg";
       modalIcon.alt = "quote icon";
     }
     if (projectExtra) projectExtra.style.display = "none";
-    if (modalDate) modalDate.style.display = "block"; // Date exists in testimonials
+    if (modalDate) {
+      const originalDate = this.closest(".testimonials-item").querySelector("time");
+      modalDate.innerHTML = originalDate ? originalDate.innerHTML : "";
+      modalDate.style.display = "block";
+    }
 
     modalToggleFunc();
   });
