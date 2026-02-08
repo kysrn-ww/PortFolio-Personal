@@ -298,32 +298,42 @@ const overlay = document.querySelector("[data-overlay]");
 const modalImg = document.querySelector("[data-modal-img]");
 const modalTitle = document.querySelector("[data-modal-title]");
 const modalText = document.querySelector("[data-modal-text]");
+const modalDate = document.querySelector("[data-modal-date]");
+const modalIcon = document.querySelector("[data-modal-icon]");
+const projectExtra = document.querySelector("[data-project-extra]");
+const projectTech = document.querySelector("[data-project-tech]");
+const projectFeatures = document.querySelector("[data-project-features]");
+const projectGithub = document.querySelector("[data-project-github]");
 
 // modal toggle function
-const testimonialsModalFunc = function () {
+const modalToggleFunc = function () {
   modalContainer.classList.toggle("active");
   overlay.classList.toggle("active");
 }
 
-// add click event to all modal items
+// add click event to all testimonial items
 for (let i = 0; i < testimonialsItem.length; i++) {
-
   testimonialsItem[i].addEventListener("click", function () {
-
     modalImg.src = this.querySelector("[data-testimonials-avatar]").src;
     modalImg.alt = this.querySelector("[data-testimonials-avatar]").alt;
     modalTitle.innerHTML = this.querySelector("[data-testimonials-title]").innerHTML;
     modalText.innerHTML = this.querySelector("[data-testimonials-text]").innerHTML;
+    
+    // Reset project specific fields
+    if (modalIcon) {
+      modalIcon.src = "./assets/images/icon-quote.svg";
+      modalIcon.alt = "quote icon";
+    }
+    if (projectExtra) projectExtra.style.display = "none";
+    if (modalDate) modalDate.style.display = "block";
 
-    testimonialsModalFunc();
-
+    modalToggleFunc();
   });
-
 }
 
 // add click event to modal close button
-modalCloseBtn.addEventListener("click", testimonialsModalFunc);
-overlay.addEventListener("click", testimonialsModalFunc);
+modalCloseBtn.addEventListener("click", modalToggleFunc);
+overlay.addEventListener("click", modalToggleFunc);
 
 
 
@@ -414,18 +424,6 @@ const pages = document.querySelectorAll("[data-page]");
 
 // project details variables
 const projectItems = document.querySelectorAll("[data-filter-item]");
-const projectModalContainer = document.querySelector("[data-project-modal-container]");
-const projectModalCloseBtn = document.querySelector("[data-project-modal-close-btn]");
-const projectOverlay = document.querySelector("[data-project-overlay]");
-
-// project modal variables
-const projectModalImg = document.querySelector("[data-project-modal-img]");
-const projectModalTitle = document.querySelector("[data-project-modal-title]");
-const projectModalCategory = document.querySelector("[data-project-modal-category]");
-const projectModalText = document.querySelector("[data-project-modal-text]");
-const projectModalTech = document.querySelector("[data-project-modal-tech]");
-const projectModalFeatures = document.querySelector("[data-project-modal-features]");
-const projectModalGithub = document.querySelector("[data-project-modal-github]");
 
 // project details data
 const projectData = {
@@ -485,47 +483,42 @@ const projectData = {
   }
 };
 
-// project modal toggle function
-const projectModalFunc = function () {
-  if (projectModalContainer && projectOverlay) {
-    projectModalContainer.classList.toggle("active");
-    projectOverlay.classList.toggle("active");
-  }
-}
-
 // add click event to all project items
 for (let i = 0; i < projectItems.length; i++) {
   projectItems[i].addEventListener("click", function (e) {
     e.preventDefault();
     
     const img = this.querySelector("img");
-    const title = this.querySelector(".project-title") ? this.querySelector(".project-title").innerText.trim() : "";
-    const category = this.querySelector(".project-category") ? this.querySelector(".project-category").innerText : "";
+    const title = this.querySelector(".project-title").innerText.trim();
+    const category = this.querySelector(".project-category").innerText;
     
-    if (projectModalImg) {
-      projectModalImg.src = img ? img.src : "";
-      projectModalImg.alt = img ? img.alt : "";
+    modalImg.src = img.src;
+    modalImg.alt = img.alt;
+    modalTitle.innerText = title;
+    if (modalDate) {
+      modalDate.innerText = category;
+      modalDate.style.display = "block";
     }
-    if (projectModalTitle) projectModalTitle.innerText = title;
-    if (projectModalCategory) projectModalCategory.innerText = category;
     
+    if (modalIcon) {
+      modalIcon.src = "./assets/images/icon-design.svg";
+      modalIcon.alt = "design icon";
+    }
+
     const data = projectData[title];
     if (data) {
-      if (projectModalText) projectModalText.innerHTML = `<p>${data.description}</p>`;
-      if (projectModalTech) projectModalTech.innerText = data.tech;
-      if (projectModalFeatures) projectModalFeatures.innerText = data.features;
-      if (projectModalGithub) projectModalGithub.href = data.github;
+      modalText.innerHTML = `<p>${data.description}</p>`;
+      if (projectExtra) {
+        projectExtra.style.display = "block";
+        projectTech.innerText = data.tech;
+        projectFeatures.innerText = data.features;
+        projectGithub.href = data.github;
+      }
     } else {
-      if (projectModalText) projectModalText.innerHTML = "<p>No description available for this project.</p>";
-      if (projectModalTech) projectModalTech.innerText = "N/A";
-      if (projectModalFeatures) projectModalFeatures.innerText = "N/A";
-      if (projectModalGithub) projectModalGithub.href = "#";
+      modalText.innerHTML = "<p>No description available for this project.</p>";
+      if (projectExtra) projectExtra.style.display = "none";
     }
     
-    projectModalFunc();
+    modalToggleFunc();
   });
 }
-
-// add click event to project modal close button
-if (projectModalCloseBtn) projectModalCloseBtn.addEventListener("click", projectModalFunc);
-if (projectOverlay) projectOverlay.addEventListener("click", projectModalFunc);
