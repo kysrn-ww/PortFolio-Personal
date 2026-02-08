@@ -475,6 +475,12 @@ for (let i = 0; i < projectLinks.length; i++) {
   projectLinks[i].addEventListener("click", function(e) {
     e.preventDefault();
     e.stopPropagation();
+    
+    // Disparar el evento click en el padre (li) para abrir el modal
+    const parentItem = this.closest('[data-filter-item]');
+    if (parentItem) {
+      parentItem.click();
+    }
   });
 }
 
