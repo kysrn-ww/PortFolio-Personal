@@ -314,10 +314,16 @@ const modalToggleFunc = function () {
 // add click event to all testimonial items
 for (let i = 0; i < testimonialsItem.length; i++) {
   testimonialsItem[i].addEventListener("click", function () {
-    modalImg.src = this.querySelector("[data-testimonials-avatar]").src;
-    modalImg.alt = this.querySelector("[data-testimonials-avatar]").alt;
-    modalTitle.innerHTML = this.querySelector("[data-testimonials-title]").innerHTML;
-    modalText.innerHTML = this.querySelector("[data-testimonials-text]").innerHTML;
+    const avatar = this.querySelector("[data-testimonials-avatar]");
+    const title = this.querySelector("[data-testimonials-title]");
+    const text = this.querySelector("[data-testimonials-text]");
+
+    if (modalImg && avatar) {
+      modalImg.src = avatar.src;
+      modalImg.alt = avatar.alt;
+    }
+    if (modalTitle && title) modalTitle.innerHTML = title.innerHTML;
+    if (modalText && text) modalText.innerHTML = text.innerHTML;
     
     // Reset project specific fields
     if (modalIcon) {
@@ -325,7 +331,7 @@ for (let i = 0; i < testimonialsItem.length; i++) {
       modalIcon.alt = "quote icon";
     }
     if (projectExtra) projectExtra.style.display = "none";
-    if (modalDate) modalDate.style.display = "block";
+    if (modalDate) modalDate.style.display = "block"; // Date exists in testimonials
 
     modalToggleFunc();
   });
