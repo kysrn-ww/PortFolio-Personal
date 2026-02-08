@@ -424,25 +424,33 @@ const projectModalTitle = document.querySelector("[data-project-modal-title]");
 const projectModalCategory = document.querySelector("[data-project-modal-category]");
 const projectModalText = document.querySelector("[data-project-modal-text]");
 
-// project modal toggle function
-const projectModalFunc = function () {
-  console.log("🎭 projectModalFunc called");
-  console.log("📦 projectModalContainer:", projectModalContainer);
-  console.log("🌑 projectOverlay:", projectOverlay);
+// project modal open function
+const projectModalOpen = function () {
+  console.log("🔓 projectModalOpen called");
   
-  if (projectModalContainer) {
+  if (projectModalContainer && !projectModalContainer.classList.contains("active")) {
     projectModalContainer.classList.add("active");
-    console.log("✅ Modal container class added, now has 'active':", projectModalContainer.classList.contains("active"));
-    console.log("🎨 Modal container styles:", window.getComputedStyle(projectModalContainer));
-  } else {
-    console.error("❌ projectModalContainer not found!");
+    console.log("✅ Modal opened, has 'active':", projectModalContainer.classList.contains("active"));
   }
   
-  if (projectOverlay) {
+  if (projectOverlay && !projectOverlay.classList.contains("active")) {
     projectOverlay.classList.add("active");
-    console.log("✅ Overlay class added, now has 'active':", projectOverlay.classList.contains("active"));
-  } else {
-    console.error("❌ projectOverlay not found!");
+    console.log("✅ Overlay opened, has 'active':", projectOverlay.classList.contains("active"));
+  }
+}
+
+// project modal close function  
+const projectModalClose = function () {
+  console.log("🔒 projectModalClose called");
+  
+  if (projectModalContainer && projectModalContainer.classList.contains("active")) {
+    projectModalContainer.classList.remove("active");
+    console.log("✅ Modal closed, has 'active':", projectModalContainer.classList.contains("active"));
+  }
+  
+  if (projectOverlay && projectOverlay.classList.contains("active")) {
+    projectOverlay.classList.remove("active");
+    console.log("✅ Overlay closed, has 'active':", projectOverlay.classList.contains("active"));
   }
 }
 
@@ -481,8 +489,8 @@ for (let i = 0; i < projectItem.length; i++) {
     }
     
     console.log("✅ Abriendo modal...");
-    console.log("🎭 Llamando projectModalFunc...");
-    projectModalFunc();
+    console.log("🎭 Llamando projectModalOpen...");
+    projectModalOpen();
   });
 }
 
