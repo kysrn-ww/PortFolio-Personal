@@ -450,14 +450,14 @@ const projectModalClose = function () {
   
   if (projectOverlay && projectOverlay.classList.contains("active")) {
     projectOverlay.classList.remove("active");
-    console.log("✅ Overlay closed, has 'active':", projectOverlay.classList.contains("active"));
+    console.log(" Overlay closed, has 'active':", projectOverlay.classList.contains("active"));
   }
 }
 
 // add click event to all project items
 for (let i = 0; i < projectItem.length; i++) {
   projectItem[i].addEventListener("click", function (e) {
-    console.log("🔍 Click detectado en proyecto (LI)");
+    console.log(" Click detectado en proyecto (LI)");
     e.preventDefault();
     e.stopPropagation();
     
@@ -465,74 +465,31 @@ for (let i = 0; i < projectItem.length; i++) {
     const img = this.querySelector(".project-img img");
     const title = this.querySelector(".project-title");
     const category = this.querySelector(".project-category");
-    console.log("📷 Imagen:", img?.src);
-    console.log("📝 Título:", title?.textContent);
-    console.log("🏷️ Categoría:", category?.textContent);
+    console.log(" Imagen:", img?.src);
+    console.log(" Título:", title?.textContent);
+    console.log(" Categoría:", category?.textContent);
     
-    // Actualizar el contenido del modal con la información del proyecto
-    if (projectModalImg && img) {
-      projectModalImg.src = img.src;
-      projectModalImg.alt = img.alt;
+    // Abrir un enlace con la imagen del proyecto
+    if (img && img.src) {
+      console.log(" Abriendo enlace con la imagen:", img.src);
+      window.open(img.src, '_blank');
     }
-    
-    if (projectModalTitle && title) {
-      projectModalTitle.textContent = title.textContent;
-    }
-    
-    if (projectModalCategory && category) {
-      projectModalCategory.textContent = category.textContent;
-    }
-    
-    // Agregar descripción del proyecto (puedes personalizarla después)
-    if (projectModalText) {
-      projectModalText.innerHTML = `<p>Detailed description of the ${title ? title.textContent : 'project'}. Professional project showcasing advanced development skills and modern technologies.</p>`;
-    }
-    
-    console.log("✅ Abriendo modal...");
-    console.log("🎭 Llamando projectModalOpen...");
-    projectModalOpen();
   });
 }
 
-// Hacer que los enlaces de proyectos abran el modal
+// Hacer que los enlaces de proyectos abran la imagen en nueva pestaña
 const projectLinks = document.querySelectorAll("[data-filter-item] a");
 for (let i = 0; i < projectLinks.length; i++) {
   projectLinks[i].addEventListener("click", function(e) {
     e.preventDefault();
     e.stopPropagation();
-    console.log("� Click en enlace, abriendo modal desde aquí");
+    console.log(" Click en enlace, abriendo imagen en nueva pestaña");
     
-    // Obtener el elemento li padre
-    const parentItem = this.closest('[data-filter-item]');
-    if (parentItem) {
-      // Obtener la información del proyecto desde el HTML
-      const img = parentItem.querySelector(".project-img img");
-      const title = parentItem.querySelector(".project-title");
-      const category = parentItem.querySelector(".project-category");
-      console.log("📷 Imagen:", img?.src);
-      console.log("📝 Título:", title?.textContent);
-      console.log("🏷️ Categoría:", category?.textContent);
-      
-      // Actualizar el contenido del modal con la información del proyecto
-      if (projectModalImg && img) {
-        projectModalImg.src = img.src;
-        projectModalImg.alt = img.alt;
-      }
-      
-      if (projectModalTitle && title) {
-        projectModalTitle.textContent = title.textContent;
-      }
-      
-      if (projectModalCategory && category) {
-        projectModalCategory.textContent = category.textContent;
-      }
-      
-      // Agregar descripción del proyecto
-      if (projectModalText) {
-        projectModalText.innerHTML = `<p>Detailed description of the ${title ? title.textContent : 'project'}. Professional project showcasing advanced development skills and modern technologies.</p>`;
-      }
-      
-      console.log("✅ Abriendo modal desde enlace...");
+    // Obtener la imagen del proyecto
+    const img = this.closest('[data-filter-item]').querySelector(".project-img img");
+    if (img && img.src) {
+      console.log(" Abriendo enlace con la imagen:", img.src);
+      window.open(img.src, '_blank');
     }
   });
 }
