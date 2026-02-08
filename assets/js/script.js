@@ -298,52 +298,32 @@ const overlay = document.querySelector("[data-overlay]");
 const modalImg = document.querySelector("[data-modal-img]");
 const modalTitle = document.querySelector("[data-modal-title]");
 const modalText = document.querySelector("[data-modal-text]");
-const modalDate = document.querySelector("[data-modal-date]");
-const modalIcon = document.querySelector("[data-modal-icon]");
-const projectExtra = document.querySelector("[data-project-extra]");
-const projectTech = document.querySelector("[data-project-tech]");
-const projectFeatures = document.querySelector("[data-project-features]");
-const projectGithub = document.querySelector("[data-project-github]");
 
 // modal toggle function
-const modalToggleFunc = function () {
+const testimonialsModalFunc = function () {
   modalContainer.classList.toggle("active");
   overlay.classList.toggle("active");
 }
 
-// add click event to all testimonial items
+// add click event to all modal items
 for (let i = 0; i < testimonialsItem.length; i++) {
+
   testimonialsItem[i].addEventListener("click", function () {
-    const avatar = this.querySelector("[data-testimonials-avatar]");
-    const title = this.querySelector("[data-testimonials-title]");
-    const text = this.querySelector("[data-testimonials-text]");
 
-    if (modalImg && avatar) {
-      modalImg.src = avatar.src;
-      modalImg.alt = avatar.alt;
-    }
-    if (modalTitle && title) modalTitle.innerHTML = title.innerHTML;
-    if (modalText && text) modalText.innerHTML = text.innerHTML;
-    
-    // Reset project specific fields to prevent data leaking between modals
-    if (modalIcon) {
-      modalIcon.src = "./assets/images/icon-quote.svg";
-      modalIcon.alt = "quote icon";
-    }
-    if (projectExtra) projectExtra.style.display = "none";
-    if (modalDate) {
-      const originalDate = this.closest(".testimonials-item").querySelector("time");
-      modalDate.innerHTML = originalDate ? originalDate.innerHTML : "";
-      modalDate.style.display = "block";
-    }
+    modalImg.src = this.querySelector("[data-testimonials-avatar]").src;
+    modalImg.alt = this.querySelector("[data-testimonials-avatar]").alt;
+    modalTitle.innerHTML = this.querySelector("[data-testimonials-title]").innerHTML;
+    modalText.innerHTML = this.querySelector("[data-testimonials-text]").innerHTML;
 
-    modalToggleFunc();
+    testimonialsModalFunc();
+
   });
+
 }
 
 // add click event to modal close button
-modalCloseBtn.addEventListener("click", modalToggleFunc);
-overlay.addEventListener("click", modalToggleFunc);
+modalCloseBtn.addEventListener("click", testimonialsModalFunc);
+overlay.addEventListener("click", testimonialsModalFunc);
 
 
 
@@ -432,103 +412,20 @@ for (let i = 0; i < formInputs.length; i++) {
 const navigationLinks = document.querySelectorAll("[data-nav-link]");
 const pages = document.querySelectorAll("[data-page]");
 
-// project details variables
-const projectItems = document.querySelectorAll("[data-filter-item]");
+// add event to all nav link
+for (let i = 0; i < navigationLinks.length; i++) {
+  navigationLinks[i].addEventListener("click", function () {
 
-// project details data
-const projectData = {
-  "Web development": {
-    tech: "HTML, CSS, JavaScript, React, Node.js",
-    description: "Modern web applications with responsive design and interactive user interfaces.",
-    features: "• Responsive design, • Interactive UI components, • RESTful API integration, • Performance optimization",
-    github: "https://github.com/kysrn-ww/web-development-project"
-  },
-  "Fivem Software": {
-    tech: "C++, Qt, OpenGL, SQL",
-    description: "High-performance desktop application with advanced features and modern UI.",
-    features: "• Multi-threading support, • Custom UI framework, • Database integration, • Cross-platform compatibility",
-    github: "https://github.com/kysrn-ww/fivem-software"
-  },
-  "Trust Loader": {
-    tech: "C++, WinAPI, File System",
-    description: "Secure file loading utility with advanced features and enterprise-level security.",
-    features: "• Drag & drop interface, • File validation, • Progress tracking, • Multi-format support",
-    github: "https://github.com/kysrn-ww/trust-loader"
-  },
-  "Host Loader": {
-    tech: "C++, Networking, Security",
-    description: "Network-based host loader with advanced security features and performance monitoring.",
-    features: "• Secure protocol implementation, • Performance monitoring, • Custom configuration, • Real-time updates",
-    github: "https://github.com/kysrn-ww/host-loader"
-  },
-  "DSM.": {
-    tech: "C++, WinAPI, System Services",
-    description: "Desktop service manager with comprehensive system monitoring and management capabilities.",
-    features: "• Service monitoring, • Performance optimization, • Automatic updates, • System integration",
-    github: "https://github.com/kysrn-ww/dsm"
-  },
-  "MetaSpark": {
-    tech: "JavaScript, Node.js, Express, MongoDB",
-    description: "Web-based task management platform with real-time collaboration and advanced features.",
-    features: "• Real-time collaboration, • Task automation, • Analytics dashboard, • Mobile responsive design",
-    github: "https://github.com/kysrn-ww/metaspark"
-  },
-  "Summary": {
-    tech: "JavaScript, React, Redux, Local Storage",
-    description: "Personal productivity dashboard with data visualization and task tracking capabilities.",
-    features: "• Data visualization, • Task analytics, • Progress tracking, • Offline functionality",
-    github: "https://github.com/kysrn-ww/summary"
-  },
-  "Arrival": {
-    tech: "JavaScript, Canvas, WebGL",
-    description: "Interactive 3D visualization platform with advanced rendering capabilities.",
-    features: "• 3D rendering engine, • Real-time collaboration, • Advanced shaders, • Performance optimization",
-    github: "https://github.com/kysrn-ww/arrival"
-  },
-  "Task Manager": {
-    tech: "C#, .NET, SQL Server",
-    description: "Enterprise task management solution with comprehensive features and team collaboration.",
-    features: "• Team collaboration, • Advanced reporting, • Workflow automation, • Integration capabilities",
-    github: "https://github.com/kysrn-ww/task-manager"
-  }
-};
-
-// add click event to all project items
-for (let i = 0; i < projectItems.length; i++) {
-  projectItems[i].addEventListener("click", function (e) {
-    e.preventDefault();
-    
-    const img = this.querySelector("img");
-    const title = this.querySelector(".project-title").innerText.trim();
-    const category = this.querySelector(".project-category").innerText;
-    
-    modalImg.src = img.src;
-    modalImg.alt = img.alt;
-    modalTitle.innerText = title;
-    if (modalDate) {
-      modalDate.innerText = category;
-      modalDate.style.display = "block";
-    }
-    
-    if (modalIcon) {
-      modalIcon.src = "./assets/images/icon-design.svg";
-      modalIcon.alt = "design icon";
-    }
-
-    const data = projectData[title];
-    if (data) {
-      modalText.innerHTML = `<p>${data.description}</p>`;
-      if (projectExtra) {
-        projectExtra.style.display = "block";
-        projectTech.innerText = data.tech;
-        projectFeatures.innerText = data.features;
-        projectGithub.href = data.github;
+    for (let i = 0; i < pages.length; i++) {
+      if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
+        pages[i].classList.add("active");
+        navigationLinks[i].classList.add("active");
+        window.scrollTo(0, 0);
+      } else {
+        pages[i].classList.remove("active");
+        navigationLinks[i].classList.remove("active");
       }
-    } else {
-      modalText.innerHTML = "<p>No description available for this project.</p>";
-      if (projectExtra) projectExtra.style.display = "none";
     }
-    
-    modalToggleFunc();
+
   });
 }
