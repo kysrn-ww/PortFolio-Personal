@@ -449,10 +449,6 @@ const projectModalClose = function () {
   }
   
   if (projectOverlay && projectOverlay.classList.contains("active")) {
-    projectOverlay.classList.remove("active");
-    console.log(" Overlay closed, has 'active':", projectOverlay.classList.contains("active"));
-  }
-}
 
 // add click event to all project items
 for (let i = 0; i < projectItem.length; i++) {
@@ -469,12 +465,24 @@ for (let i = 0; i < projectItem.length; i++) {
     console.log(" Título:", title?.textContent);
     console.log(" Categoría:", category?.textContent);
     
+    // Mostrar información detallada del proyecto
+    mostrarInformacionProyecto(img, title, category);
+    
     // Abrir un enlace con la imagen del proyecto
     if (img && img.src) {
       console.log(" Abriendo enlace con la imagen:", img.src);
       window.open(img.src, '_blank');
     }
   });
+}
+
+// Función para mostrar información detallada del proyecto
+function mostrarInformacionProyecto(img, title, category) {
+  console.log("=== 📋 INFORMACIÓN COMPLETA DEL PROYECTO ===");
+  console.log("🎯 Título:", title?.textContent);
+  console.log("🏷️ Categoría:", category?.textContent);
+  console.log("🖼️ Imagen:", img?.src);
+  console.log("🔗 Imagen (nueva pestaña):", img?.src);
 }
 
 // Hacer que los enlaces de proyectos abran la imagen en nueva pestaña
