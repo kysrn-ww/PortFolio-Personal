@@ -478,11 +478,11 @@ for (let i = 0; i < projectItem.length; i++) {
 
 // Función para mostrar información detallada del proyecto
 function mostrarInformacionProyecto(img, title, category) {
-  console.log("=== 📋 INFORMACIÓN COMPLETA DEL PROYECTO ===");
-  console.log("🎯 Título:", title?.textContent);
-  console.log("🏷️ Categoría:", category?.textContent);
-  console.log("🖼️ Imagen:", img?.src);
-  console.log("🔗 Imagen (nueva pestaña):", img?.src);
+  console.log("=== INFORMACIÓN COMPLETA DEL PROYECTO ===");
+  console.log("Título:", title?.textContent);
+  console.log("Categoría:", category?.textContent);
+  console.log("Imagen:", img?.src);
+  console.log("Imagen (nueva pestaña):", img?.src);
 }
 
 // Hacer que los enlaces de proyectos abran la imagen en nueva pestaña
