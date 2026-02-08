@@ -433,28 +433,8 @@ const projectModalFunc = function () {
 // add click event to all project items
 for (let i = 0; i < projectItem.length; i++) {
   projectItem[i].addEventListener("click", function (e) {
-    // Evitamos que el clic en elementos internos como el icono del ojo bloquee la apertura
-    e.preventDefault();
-    
-    const img = this.querySelector("img");
-    const title = this.querySelector(".project-title");
-    const category = this.querySelector(".project-category");
-
-    if (img) {
-      projectModalImg.src = img.src;
-      projectModalImg.alt = img.alt;
-    }
-    
-    if (title) {
-      projectModalTitle.innerHTML = title.innerHTML;
-      projectModalText.innerHTML = `<p>Project details for ${title.innerText}</p>`;
-    }
-    
-    if (category) {
-      projectModalCategory.innerHTML = category.innerHTML;
-    }
-
-    projectModalFunc();
+    // Redirigir directamente a la URL externa solicitada
+    window.location.href = "https://portfolio-personal-ic9h.onrender.com/#/proyectofivem";
   });
 }
 
