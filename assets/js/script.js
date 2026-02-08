@@ -412,6 +412,57 @@ for (let i = 0; i < formInputs.length; i++) {
 const navigationLinks = document.querySelectorAll("[data-nav-link]");
 const pages = document.querySelectorAll("[data-page]");
 
+// project modal variables
+const projectItem = document.querySelectorAll("[data-filter-item]");
+const projectModalContainer = document.querySelector("[data-project-modal-container]");
+const projectModalCloseBtn = document.querySelector("[data-project-modal-close-btn]");
+const projectOverlay = document.querySelector("[data-project-overlay]");
+
+// project modal elements
+const projectModalImg = document.querySelector("[data-project-modal-img]");
+const projectModalTitle = document.querySelector("[data-project-modal-title]");
+const projectModalCategory = document.querySelector("[data-project-modal-category]");
+const projectModalText = document.querySelector("[data-project-modal-text]");
+
+// project modal toggle function
+const projectModalFunc = function () {
+  projectModalContainer.classList.toggle("active");
+  projectOverlay.classList.toggle("active");
+}
+
+// add click event to all project items
+for (let i = 0; i < projectItem.length; i++) {
+  projectItem[i].addEventListener("click", function (e) {
+    // Evitamos que el clic en elementos internos como el icono del ojo bloquee la apertura
+    e.preventDefault();
+    
+    const img = this.querySelector("img");
+    const title = this.querySelector(".project-title");
+    const category = this.querySelector(".project-category");
+
+    if (img) {
+      projectModalImg.src = img.src;
+      projectModalImg.alt = img.alt;
+    }
+    
+    if (title) {
+      projectModalTitle.innerHTML = title.innerHTML;
+      projectModalText.innerHTML = `<p>Project details for ${title.innerText}</p>`;
+    }
+    
+    if (category) {
+      projectModalCategory.innerHTML = category.innerHTML;
+    }
+
+    projectModalFunc();
+  });
+}
+
+// add click event to project modal close button
+projectModalCloseBtn.addEventListener("click", projectModalFunc);
+projectOverlay.addEventListener("click", projectModalFunc);
+
+
 // add event to all nav link
 for (let i = 0; i < navigationLinks.length; i++) {
   navigationLinks[i].addEventListener("click", function () {
