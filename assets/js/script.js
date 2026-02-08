@@ -433,8 +433,34 @@ const projectModalFunc = function () {
 // add click event to all project items
 for (let i = 0; i < projectItem.length; i++) {
   projectItem[i].addEventListener("click", function (e) {
-    // Redirigir directamente a la URL externa solicitada
-    window.location.href = "https://portfolio-personal-ic9h.onrender.com/#/proyectofivem";
+    e.preventDefault(); // Prevenir la acción por defecto del enlace
+    
+    // Obtener la información del proyecto desde el HTML
+    const img = this.querySelector(".project-img img");
+    const title = this.querySelector(".project-title");
+    const category = this.querySelector(".project-category");
+    
+    // Actualizar el contenido del modal con la información del proyecto
+    if (projectModalImg && img) {
+      projectModalImg.src = img.src;
+      projectModalImg.alt = img.alt;
+    }
+    
+    if (projectModalTitle && title) {
+      projectModalTitle.textContent = title.textContent;
+    }
+    
+    if (projectModalCategory && category) {
+      projectModalCategory.textContent = category.textContent;
+    }
+    
+    // Agregar descripción del proyecto (puedes personalizarla después)
+    if (projectModalText) {
+      projectModalText.innerHTML = `<p>Detailed description of the ${title ? title.textContent : 'project'} will be displayed here. You can customize this text for each project individually.</p>`;
+    }
+    
+    // Mostrar el modal
+    projectModalFunc();
   });
 }
 
