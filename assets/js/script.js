@@ -433,12 +433,17 @@ const projectModalFunc = function () {
 // add click event to all project items
 for (let i = 0; i < projectItem.length; i++) {
   projectItem[i].addEventListener("click", function (e) {
-    e.preventDefault(); // Prevenir la acción por defecto del enlace
+    console.log("🔍 Click detectado en proyecto");
+    e.preventDefault();
+    e.stopPropagation();
     
     // Obtener la información del proyecto desde el HTML
     const img = this.querySelector(".project-img img");
     const title = this.querySelector(".project-title");
     const category = this.querySelector(".project-category");
+    console.log("📷 Imagen:", img?.src);
+    console.log("📝 Título:", title?.textContent);
+    console.log("🏷️ Categoría:", category?.textContent);
     
     // Actualizar el contenido del modal con la información del proyecto
     if (projectModalImg && img) {
@@ -456,11 +461,20 @@ for (let i = 0; i < projectItem.length; i++) {
     
     // Agregar descripción del proyecto (puedes personalizarla después)
     if (projectModalText) {
-      projectModalText.innerHTML = `<p>Detailed description of the ${title ? title.textContent : 'project'} will be displayed here. You can customize this text for each project individually.</p>`;
+      projectModalText.innerHTML = `<p>Detailed description of the ${title ? title.textContent : 'project'}. Professional project showcasing advanced development skills and modern technologies.</p>`;
     }
     
-    // Mostrar el modal
+    console.log("✅ Abriendo modal...");
     projectModalFunc();
+  });
+}
+
+// Prevenir navegación en los enlaces de proyectos
+const projectLinks = document.querySelectorAll("[data-filter-item] a");
+for (let i = 0; i < projectLinks.length; i++) {
+  projectLinks[i].addEventListener("click", function(e) {
+    e.preventDefault();
+    e.stopPropagation();
   });
 }
 
