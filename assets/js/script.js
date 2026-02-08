@@ -448,7 +448,7 @@ const projectModalFunc = function () {
 // add click event to all project items
 for (let i = 0; i < projectItem.length; i++) {
   projectItem[i].addEventListener("click", function (e) {
-    console.log("🔍 Click detectado en proyecto");
+    console.log("🔍 Click detectado en proyecto (LI)");
     e.preventDefault();
     e.stopPropagation();
     
@@ -485,13 +485,47 @@ for (let i = 0; i < projectItem.length; i++) {
   });
 }
 
-// Prevenir navegación en los enlaces de proyectos (sin duplicar eventos)
+// Hacer que los enlaces de proyectos abran el modal
 const projectLinks = document.querySelectorAll("[data-filter-item] a");
 for (let i = 0; i < projectLinks.length; i++) {
   projectLinks[i].addEventListener("click", function(e) {
     e.preventDefault();
     e.stopPropagation();
-    console.log("🚫 Enlace bloqueado, no hacer nada más");
+    console.log("� Click en enlace, abriendo modal desde aquí");
+    
+    // Obtener el elemento li padre
+    const parentItem = this.closest('[data-filter-item]');
+    if (parentItem) {
+      // Obtener la información del proyecto desde el HTML
+      const img = parentItem.querySelector(".project-img img");
+      const title = parentItem.querySelector(".project-title");
+      const category = parentItem.querySelector(".project-category");
+      console.log("📷 Imagen:", img?.src);
+      console.log("📝 Título:", title?.textContent);
+      console.log("🏷️ Categoría:", category?.textContent);
+      
+      // Actualizar el contenido del modal con la información del proyecto
+      if (projectModalImg && img) {
+        projectModalImg.src = img.src;
+        projectModalImg.alt = img.alt;
+      }
+      
+      if (projectModalTitle && title) {
+        projectModalTitle.textContent = title.textContent;
+      }
+      
+      if (projectModalCategory && category) {
+        projectModalCategory.textContent = category.textContent;
+      }
+      
+      // Agregar descripción del proyecto
+      if (projectModalText) {
+        projectModalText.innerHTML = `<p>Detailed description of the ${title ? title.textContent : 'project'}. Professional project showcasing advanced development skills and modern technologies.</p>`;
+      }
+      
+      console.log("✅ Abriendo modal desde enlace...");
+      projectModalFunc();
+    }
   });
 }
 
